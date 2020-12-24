@@ -1,5 +1,8 @@
 const {webdriver,until,Builder, By, Key} = require('selenium-webdriver');
 var chrome = require('selenium-webdriver/chrome');
+
+let json = [];
+
 (async ()=> {
     try{
         var driver = await new Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().addArguments('disable-gpu').addArguments('user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36').addArguments('headless')).build();
@@ -88,6 +91,7 @@ var chrome = require('selenium-webdriver/chrome');
                 var dtime = await driver.findElement(By.xpath('//*[@id="shipmentResults"]/div['+i+']/div[1]/div/dl[1]/dd[3]')); //depart time
 
                 console.log("dtime:",await dtime.getText());
+                
                 var dname = await driver.findElement(By.xpath('//*[@id="shipmentResults"]/div['+i+']/div[1]/div/dl[1]/dd[4]/a')); //depart name
                 console.log("dname:", await dname.getText());
                 var atime = await driver.findElement(By.xpath('//*[@id="shipmentResults"]/div['+i+']/div[1]/div/dl[2]/dd[3]')); //arrival time
@@ -101,8 +105,18 @@ var chrome = require('selenium-webdriver/chrome');
                 var trasitt = await driver.findElement(By.xpath('//*[@id="shipmentResults"]/div['+i+']/div[1]/div/dl[4]/dd[3]')); //trasit time //*[@id="shipmentResults"]/div[1]/div[1]/div/dl[4]/dd[3]
                 console.log("trasitt:", await trasitt.getText());
                 console.log("-------------------------------------------------------------------------------------");
+                var result = {
+                    "출발시간":await dtime.getText(),
+                    "출발지":await dname.getText(),
+                    "도착시간":await atime.getText(),
+                    "도착지":await aname.getText(),
+                    "선박명":await vname.getText(),
+                    "와트":await vwatt.getText(),
+                    "운송":await trasitt.getText()
+                };
+                json.push(result);
             }
 
+            console.log(json);
         },15000);
-    
 })();
