@@ -1,4 +1,5 @@
 const {webdriver,until,Builder, By, Key} = require('selenium-webdriver');
+const fs = require('fs');
 var chrome = require('selenium-webdriver/chrome');
 
 let json = [];
@@ -115,6 +116,8 @@ let json = [];
                     "운송":await trasitt.getText()
                 };
                 json.push(result);
+                resultsJSON = JSON.stringify(json);
+                fs.writeFileSync('resultsJson.json',resultsJSON);
             }
 
             console.log(json);
