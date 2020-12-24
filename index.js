@@ -7,6 +7,7 @@ let json = [];
 (async ()=> {
     try{
         var driver = await new Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().addArguments('disable-gpu').addArguments('user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36').addArguments('headless')).build();
+        //headless, 가속화 disabled 및 selenium 필터링 방지를 위한 user-agent 설정
     }catch(error) {
         console.error("getDriver ERR",error);
     }
@@ -14,7 +15,7 @@ let json = [];
     var fr = "Busan, Korea, South";
     var to_ = "Ushuaia, Argentina";
     var url = ("https://www.maersk.com/schedules/");//webdriver URL 호출
-    await driver.executeScript("Object.defineProperty(navigator, 'plugins', {get: function() {return[1, 2, 3, 4, 5];},});");
+    await driver.executeScript("Object.defineProperty(navigator, 'plugins', {get: function() {return[1, 2, 3, 4, 5];},});");//selenium 필터링 방지
     try{
         await driver.get(url);
         
