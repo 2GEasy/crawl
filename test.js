@@ -31,16 +31,16 @@ var chrome = require('selenium-webdriver/chrome');
     await driver.wait(until.elementLocated(By.xpath("/html/body/div[1]/div[4]/div[1]/div/div/div/div/div/form/div[6]/div/div"))).click();
 
     let json = [];
-    var results = await driver.wait(until.elementsLocated(By.xpath('//*[@id="capture"]/div/div/div[2]/table/tbody/tr')));
+    var results = await driver.wait(until.elementsLocated(By.xpath("//*[@id='capture']/div/div/div[2]/table/tbody/tr")));
     console.log("results:",results.length);
     let temp;
     for(var i=0; i<results.length; i++) {
-        await driver.wait(until.elementLocated(By.xpath('//*[@id="capture"]/div/div/div[2]/table/tbody/tr['+(i+1)+']/td[3]/div/div[1]')));
+        await driver.wait(until.elementLocated(By.xpath("//*[@id='capture']/div/div/div[2]/table/tbody/tr['+(i+1)+']/td[3]/div/div[1]")));
         var src_at = await results[i].findElement(By.xpath('td[3]/div/div[1]')).getText();
-        await driver.wait(until.elementLocated(By.xpath('//*[@id="capture"]/div/div/div[2]/table/tbody/tr['+(i+1)+']/td[5]/div/ul/li[1]/div[3]/div/p[1]')));
-        await driver.wait(until.elementLocated(By.xpath('//*[@id="capture"]/div/div/div[2]/table/tbody/tr['+(i+1)+']/td[5]/div/ul/li[1]/div[3]/div/p[2]')));
+        await driver.wait(until.elementLocated(By.xpath("//*[@id='capture']/div/div/div[2]/table/tbody/tr['+(i+1)+']/td[5]/div/ul/li[1]/div[3]/div/p[1]")));
+        await driver.wait(until.elementLocated(By.xpath("//*[@id='capture']/div/div/div[2]/table/tbody/tr['+(i+1)+']/td[5]/div/ul/li[1]/div[3]/div/p[2]")));
         var vessel_name = (await results[i].findElement(By.xpath('td[5]/div/ul/li[1]/div[3]/div/p[1]')).getText()) + (await results[i].findElement(By.xpath('td[5]/div/ul/li[1]/div[3]/div/p[2]')).getText());
-        await driver.wait(until.elementLocated(By.xpath('//*[@id="capture"]/div/div/div[2]/table/tbody/tr['+(i+1)+']/td[6]/div/span')));
+        await driver.wait(until.elementLocated(By.xpath("//*[@id='capture']/div/div/div[2]/table/tbody/tr['+(i+1)+']/td[6]/div/span")));
         var dst_at = await results[i].findElement(By.xpath('td[6]/div/span')).getText();
         temp = {
             "src_at":src_at,
