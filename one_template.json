@@ -1,0 +1,133 @@
+[
+    {
+        "url":"http://ecomm.one-line.com/ecom/CUP_HOM_3001.do?sessLocale=en",
+        "by":null,
+        "key":null,
+        "type":null,
+        "send_text":null,
+        "time":null,
+        "loop":null,
+        "rtnkey":null
+    },
+    {
+        "url":null,
+        "by":"xpath",
+        "key":"//*[@id='oriLocNm_0']",
+        "type":"sendkeys",
+        "send_text":"PUSAN, KOREA REPUBLIC OF (CY/Door)",
+        "time":null,
+        "loop":null,
+        "rtnkey":null
+    },
+    {
+        "url":null,
+        "by":"xpath",
+        "key":"/html/body/ul[1]/li[1]/a",
+        "type":"click",
+        "send_text":null,
+        "time":null,
+        "loop":null,
+        "rtnkey":null
+    },
+    {
+        "url":null,
+        "by":"xpath",
+        "key":"//*[@id='destLocNm_0']",
+        "type":"sendkeys",
+        "send_text":"SHANGHAI, SHANGHAI, CHINA (CY/Door)",
+        "time":null,
+        "loop":null,
+        
+        "rtnkey":null
+    },
+    {
+        "url":null,
+        "by":"xpath",
+        "key":"/html/body/ul[2]/li/a",
+        "type":"click",
+        "send_text":null,
+        "time":300,
+        "loop":null,
+        
+        "rtnkey":null
+    },
+    {
+        "url":null,
+        "by":"xpath",
+        "key":"//*[@id='btnSearch']",
+        "type":"click",
+        "send_text":null,
+        "time":null,
+        "loop":null,
+        
+        "rtnkey":null
+    },
+    {
+        "url":null,
+        "by":"xpath",
+        "key":"/html/body/div[3]/div[2]/div/form/div[3]/div[2]/div/div[3]/div[3]/div/table/tbody",
+        "type":null,
+        "send_text":null,
+        "time":3000,
+        "loop":[
+            {
+                "url":null,
+                "by":"xpath",
+                "key":"td[8]/small",
+                "type":"getText",
+                "send_text":null,
+                "time":null,
+                "loop":null,
+                
+                "rtnkey":"origin_at"
+            },
+            {
+                "url":null,
+                "by":"xpath",
+                "key":"td[8]/b/a",
+                "type":"getText",
+                "send_text":null,
+                "time":null,
+                "loop":null,
+                
+                "rtnkey":"origin"
+            },
+            {
+                "url":null,
+                "by":"xpath",
+                "key":"td[11]/small",
+                "type":"getText",
+                "send_text":null,
+                "time":null,
+                "loop":null,
+                
+                "rtnkey":"destination_at"
+            },
+            {
+                "url":null,
+                "by":"xpath",
+                "key":"td[11]/b/a",
+                "type":"getText",
+                "send_text":null,
+                "time":null,
+                "loop":null,
+                
+                "rtnkey":"destination"
+            },
+            {
+                "url":null,
+                "by":"xpath",
+                "key":"td[22]/a",
+                "type":"getText",
+                "send_text":null,
+                "time":null,
+                "loop":null,
+                
+                "rtnkey":"vessel_name"
+            }
+           
+        ],
+        
+        "rtnkey":null
+    }
+]
